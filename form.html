@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+// function that dynamically adds song inputs
+function  add_more() {
+  var txt =
+  "<br><input type=\"text\" name=\"myInputs[]\" value=\"myInputs\" required><br><input type=\"file\" name =\"songToUpload[]\" required>";
+  document.getElementById("dynamicInput").innerHTML += txt;
+}
+</script>
+</head>
+<body>
+
+<form action="insert.php" method="POST" enctype="multipart/form-data">
+	Contact Info
+    <p>
+        <label for="fname">Full Name:</label>
+        <input type="text" name="fname" required>
+    </p>
+    <p>
+        <label for="email">Email Address:</label>
+        <input type="text" name="email" required>
+    </p>
+    <p>
+        <label for="twitter">Twitter Handle - optional:</label>
+        <input type="text" name="twitter" >
+    </p>
+	Album Info
+    <p>
+        <label for="albumTitle">Album Name:</label>
+        <input type="text" name="albumTitle" required>
+    </p>
+    <p>
+        <label for="artistName">Artist Name:</label>
+        <input type="text" name="artistName" required>
+    </p>
+    <p>
+        <label for="year">Year Released:</label>
+        <input type="number" name="year" required>
+    </p>
+    <p>
+	    <select name="genre" required>
+	    <option value="hiphop">Hip-Hop</option>
+	    <option value="rap">Rap</option>
+	    <option value="rb">R&B</option>
+	    <option value="pop">Pop</option>
+	    <option value="alt">Alternative</option>
+	    <option value="rock">Rock</option>
+	    <option value="country">Country</option>
+	    <option value="metal">Metal</option>
+	    <option value="jazz">Jazz</option>
+	    <option value="edm">EDM</option>
+	    <option value="electric">Eletric</option>
+	    <option value="christian">Christian</option>
+	    <option value="afro">Afrobeat</option>
+	    <option value="reggae">Reggae</option>
+	    <option value="soca">Soca</option>
+	    <option value="kpop">Korean Pop</option>
+	  </select>
+  <br><br>
+    </p>
+    Album Artwork (jpg, jpeg, or png)
+    <p>
+    <input type="file" name="imageUpload" id="imageUpload" accept="image/jpeg, image/jpg, image/png" required>
+    </p>
+
+
+    Songs (mp3 or m4a)
+    <p>
+    <div id="dynamicInput">
+          Song 1<br><input type="text" name="myInputs[]" required>
+          <br><input type="file" name ="songToUpload[]" required>
+        <input type="button" onclick="add_more();" value="Add Song">
+     </div>
+    </p>
+
+    <input type="submit" name="submit" class="button" value="Submit">
+
+</form>
+
+</body>
+</html>
