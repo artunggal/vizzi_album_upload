@@ -2,9 +2,9 @@
 
 function Connect() {
 	$servername = 'localhost';
-	$username = 'tunggal';
-	$password = 'V@r13nt$';
-	$dbname = "Vizzi Music";
+	$username = ******;
+	$password = ******;
+	$dbname = *******;
 
 	// Create connection
 
