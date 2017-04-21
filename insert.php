@@ -60,7 +60,13 @@ $albumtarget = "";
 	// Otherwise no path is created
 
 if($total > 0) {
-	$albumtarget = __DIR__ . "/albums/" . basename($album);
+
+	$singertarget = __DIR__ . "/albums/" . basename($artist);
+	if (is_dir($singertarget) == false) {
+		mkdir($singertarget, 0666, true);
+	}
+
+	$albumtarget = __DIR__ . "/albums/" . "/$artist/" . basename($album);
 	if (is_dir($albumtarget) == false) {
 		mkdir($albumtarget, 0666, true);
 		}
@@ -86,7 +92,7 @@ for($j=0; $j<$total; $j++) {
 	$songFile=$_FILES['songToUpload']['name'][$j];
 
 	//Path for song
-	$songtarget = __DIR__ . "/albums/" . "/$album/" . basename($songFile);
+	$songtarget = __DIR__ . "/albums/" . "/$artist/" . "/$album/" . basename($songFile);
 
 	$tmpSongPath = $_FILES['songToUpload']['tmp_name'][$j];
 
@@ -109,8 +115,6 @@ for($j=0; $j<$total; $j++) {
 	    echo "ERROR: Could not execute $sql. " . mysqli_error($conn);
 	}
 }
-
-echo "I got to the fourth check";
 
 
 	//Insert Album Info into Database
