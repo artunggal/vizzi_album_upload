@@ -4,9 +4,11 @@
 
 <script>
 // function that dynamically adds song inputs
+var counter = 1;
 function  add_more() {
+  counter += 1;
   var txt =
-  "<br><input type=\"text\" name=\"myInputs[]\" value=\"myInputs\" required><br><input type=\"file\" name =\"songToUpload[]\" required>";
+  "<br><label> Song " + counter.toString() + " </label><br><input type=\"text\" name=\"myInputs[]\" required><br><input type=\"file\" name =\"songToUpload[]\" required><br>";
   document.getElementById("dynamicInput").innerHTML += txt;
 }
 </script>
@@ -70,10 +72,16 @@ function  add_more() {
     Songs (mp3 or m4a)
     <p>
     <div id="dynamicInput">
-          Song 1<br><input type="text" name="myInputs[]" required>
+          <label>Song 1</label>
+          <br><input type="text" name="myInputs[]" required>
           <br><input type="file" name ="songToUpload[]" required>
-        <input type="button" onclick="add_more();" value="Add Song">
+          <input type="button" onclick="add_more();" value="Add Song">
+          <br>
      </div>
+    </p>
+    <p>
+    <label for="checkBox">I agree to the terms and conditions:</label>
+    <input type="checkbox" name="checkBox" required>
     </p>
 
     <input type="submit" name="submit" class="button" value="Submit">
